@@ -39,7 +39,9 @@ AutoDrive::AutoDrive(DriveTrain *drivetrain, Shooter *shooter) : m_driveTrain(dr
   // Add your commands here, e.g.
   // AddCommands(FooCommand(), BarCommand());
   AddCommands (
-    frc2::SequentialCommandGroup{ AutoDelay(a), AutoDriveDistance(drivetrain, b) },
+    frc2::SequentialCommandGroup{ AutoDelay(a), 
+                                  frc2::ParallelRaceGroup{ AutoDriveDistance(drivetrain, b), AutoDelay(5.0) }
+                                },
     frc2::ParallelRaceGroup{ SpinUpShooter(shooter), AutoDelay(c) },
     frc2::SequentialCommandGroup{ AutoDelay(d),
                                   frc2::ParallelRaceGroup{ JumbleShooter(shooter, -1), AutoDelay(e) }

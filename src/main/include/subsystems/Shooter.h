@@ -18,7 +18,7 @@
 #include <frc/shuffleboard/Shuffleboard.h>
 #include <frc/shuffleboard/ShuffleboardTab.h>
 #include <networktables/NetworkTableEntry.h>
-#include <frc/XBoxController.h>
+#include <frc/XboxController.h>
 
 namespace ConShooter {
     namespace Top {
@@ -117,11 +117,11 @@ class Shooter : public frc2::SubsystemBase {
 
   void Jumble(int direction);
 
+  void Dejumble();
+
   void FlapHopper();
 
   void StopFlapper();
-
-  void Dejumble();
 
   void SetKickerSpeed(double speed);
 
